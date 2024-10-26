@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry and Creative Writing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #EAE6FF;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #5A3D5C;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 3rem;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+        }
+
+        .section-divider {
+            height: 1px;
+            background-color: #ccc;
+            margin: 40px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #F2F0FF;
+            color: #777;
+        }
+
+        .graphic {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .graphic:hover {
+            transform: scale(1.1); 
+            filter: hue-rotate(10deg);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #5A3D5C;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+       .btn:active {
+    transform: scale(0.95); /* This slightly reduces the button size on click */
+       } 
+     
+        .form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #5A3D5C;
+            padding: 20px;
+            background-color: #fff;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-popup input, .form-popup textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .close-btn {
+            background-color: #5A3D5C;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Poetry and Creative Writing</h1>
+
+    <!-- Creative Writing Challenges Section -->
+    <section class="section"
+     id="creative-writing-section">
+        <img src="https://cdn-icons-png.flaticon.com/512/1554/1554551.png" alt="Quill Graphic" class="graphic">
+        <h2>Creative Writing Challenges</h2>
+        <p>Explore prompts and exercises that push your creativity to the next level.</p>
+        <button class="btn" onclick="showRandomInfo('creative')">View Prompts</button>
+        <div id="creative-info"
+       class="info-box">"Challenge yourself: Write a story in about 50 words or less!"</div> 
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Poetry Section -->
+    <section class="section"
+    id="poetry-section">
+        <img src="https://cdn-icons-png.flaticon.com/512/1645/1645229.png" alt="Notepad Graphic" class="graphic">
+        <h2>Poetry</h2>
+        <p>Dive into the art of poetry with tips on form, rhythm, and expression.</p>
+        <button class="btn" onclick="showRandomInfo('poetry')">View Prompts</button>
+       <div id="poetry-info"
+       class="info-box">"Write a poem about your current feelings or situation."</div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Writing Tips Section -->
+    <section class="section"
+     id="writing-tips-section">
+        <img src="https://cdn-icons-png.flaticon.com/512/1160/1160358.png" alt="Abstract Shape Graphic" class="graphic">
+        <h2>Writing Tips</h2>
+        <p>Improve your craft with practical advice on style, grammar, and storytelling.</p>
+        <button class="btn" onclick="showRandomInfo('tips')">View Prompts</button>
+        <div id="tips-info"
+        class="info-box">"Use sensory details to make your scenes come alive."</div>
+    </section>
+
+    <!-- Form Popup -->
+    <div id="popupForm" class="form-popup">
+        <button class="close-btn" onclick="closeForm()">X</button>
+        <h3>Submit Your Work</h3>
+        <input type="text" placeholder="Your Name" required>
+        <textarea placeholder="Share your thoughts or writing" rows="4" required></textarea>
+        <button class="btn">Submit</button>  
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Talick Aziz. All Rights Reserved.</p>
+    </div>
+    
+  <script>
+  const creativePrompts = [
+            "Write a story starting with 'Once upon a time...' and end it in a surprising way!",
+            "Describe a character who has a secret that changes everything.",
+            "Create a dialogue between two characters who just met."
+        ];
+
+        const poetryPrompts = [
+            "Compose a poem about your favorite season using at least three senses.",
+            "Write a haiku about a sunset.",
+            "Create a poem using only questions."
+        ];
+
+        const writingTips = [
+            "Use sensory details to make your scenes come alive!",
+            "Show, don’t tell—let the reader experience the story.",
+            "Write every day, even if it’s just a few sentences."
+        ];
+
+        function showRandomInfo(section) {
+            let prompts;
+            if (section === 'creative') {
+                prompts = creativePrompts;
+            } else if (section === 'poetry') {
+                prompts = poetryPrompts;
+            } else if (section === 'tips') {
+                prompts = writingTips;
+            }
+
+            // Pick a random prompt
+            const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+            const infoBox = document.getElementById(section + '-info');
+
+            // Display the random prompt
+            infoBox.textContent = randomPrompt;
+            infoBox.style.display = 'block';
+        }
+</script>
+
+</body>
+</html>
+
