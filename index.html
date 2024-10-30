@@ -163,10 +163,27 @@
         <button class="btn">Submit</button>  
     </div>
 
-    <div class="footer">
+   
+    <!-- Section for Submitting Thoughts -->
+<section class="section" id="submission-section">
+    <h2>Share Your Thoughts</h2>
+    <p>Submit your poetry or writings below, and they will be shared with others who visit this site.</p>
+    
+    <!-- Google Form Embed -->
+     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfl4eJs6WvXxaVRSUTgi8XSgxGnBoGJMeDEF3zgLC7-oHUCgw/viewform?embedded=true" 
+        width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
+        Loading…
+    </iframe>
+</section>
+
+  <!-- Section for Submissions -->
+   <section class="section" id="submissions-section">
+    <h2>Submissions</h2>
+    <iframe src="https://docs.google.com/spreadsheets/u/0/d/1k51q03YAgLUm_EKDYRvbkCodcCo3BLoNudCSpPDgwY4/htmlview" width="100%" height="500px"></iframe>
+</section>
+   <div class="footer">
         <p>&copy; 2024 Talick Aziz. All Rights Reserved.</p>
     </div>
-    
   <script>
   const creativePrompts = [
             "Write a story starting with 'Once upon a time...' and end it in a surprising way!",
@@ -204,6 +221,7 @@
             infoBox.textContent = randomPrompt;
             infoBox.style.display = 'block';
         }
+        
 </script>
 
 </body>
